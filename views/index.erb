@@ -1,0 +1,15 @@
+<div class="container">
+	<h1>Hello.  Please search for a movie</h1>
+	<form action ="/search_result" method="POST">
+		<label for="movie">Search for:</label>
+		<input id="movie" name="movie[title]" type="text">
+		<br>
+		<button>Search</button>
+	</form>
+</div>
+	<%@movies.each do |movie| %>
+		<div> 
+			<%= movie[:title] %> --- <%= movie[:title] %>
+			<% end %>
+
+		</div>
