@@ -2,14 +2,8 @@
 	<h1>Hello.  Please search for a movie</h1>
 	<form action ="/search_result" method="POST">
 		<label for="movie">Search for:</label>
-		<input id="movie" name="movie[title]" type="text">
-		<br>
-		<button>Search</button>
+		<input id="movie" name="movie" type="text">
+		<input name="commit" type="submit" value="search">
 	</form>
 </div>
-	<%@movies.each do |movie| %>
-		<div> 
-			<%= movie[:title] %> --- <%= movie[:title] %>
-			<% end %>
-
-		</div>
+		

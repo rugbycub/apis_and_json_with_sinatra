@@ -1,0 +1,12 @@
+<head><title>Search Result - <%= @search_str  %> </title></head>
+
+<div class="container>">
+	<h1> Search Results </h1> 
+	<br>
+	<ul>
+	<% @movies.each do |movie| %>
+	<li><a href=<%="/movie_information/#{movie["imdbID"]}"%>> <%= "#{movie["Title"]}"%> --- <%=movie["Year"] %>
+	<% end %>
+	</ul>
+</div>
+
