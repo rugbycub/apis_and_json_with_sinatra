@@ -1,0 +1,25 @@
+    body {
+    	background-color: #3498db
+    }
+
+    *.container_header {
+    	font-family: "Lobster", cursive;
+      border: solid 1px teal;
+      background: #2980b9;
+      color: white;
+      position: relative;
+    	float: right;
+    }
+
+    a {
+    	color: white;
+    }
+
+    div.container_title {
+    	background: #7f8c8d;
+    	color: white;
+    }
+
+    div.container_contents {
+    	background: #bdc3c7;
+    }

@@ -1,0 +1,217 @@
+#Debugging & Testing
+--- 
+
+
+
+Find the errors in the following
+
+1.)
+
+> *My script is loading fine, but separate style sheets aren't working*
+
+    <!DOCTYPE html>
+  	
+	<html>
+	
+		<head>
+			<link src="sytlesheet" type="text/css" href="/style/style.css">
+		</head>
+____
+
+--> 'text/css' should be 'text/stylesheet' 
+____
+
+2.)
+
+> *Why is my form not working?*
+
+	<form action="get" method="/">
+		<input type="text" name="my_name">
+		<input type="submit" value="submit name">
+	</form>
+	
+____
+
+--> The action and method are switched
+____
+
+3.) 
+
+> *My double route isn't working! Why isn't the route working?*
+
+	…
+	get "/double/:my_number" do
+		
+	  input = params[:my_number]
+	  @double = 2*input
+	 
+	 erb :show
+	  
+	end
+
+____
+
+	--> The route is a string, so when you multiply it, you are multiplying a string.  It needs a .to_i
+____
+
+> *What does `get "/double/2"` return?* 
+____
+
+--> 22
+____
+
+4.) 
+
+> *My greet route isn't working! What should I change?*
+
+**app.rb**
+
+	get "/greet/:name" do
+		
+		submitted_name = params[:name]
+		
+		erb :show
+	end
+	
+**show.erb**
+
+	<div>
+		 Hello <%= submitted_name %>!
+	</div>	
+
+> *When I go to `/greet/world` expecting `Hello World!`, but I get the following error:*
+ 
+	 NameError at `/greet/world`
+	undefined local variable or method `id' for
+	 #<Sinatra::Application:0x007f892315d160>
+	 
+	 BACKTRACE
+	 ____________________________________________
+	 2.		<%= submitted_name %>
+ 
+_____
+
+--> change the submitted name to @submitted_name	
+____
+
+5.)
+> *What do you think of my controller? I don't even need a view. Why shouldn't I put all this in my controller?*
+
+
+	get "/" do
+		pageTitle = "myApp!"
+		"<!DOCTYPE html>
+		<html>
+			<head>
+					<title>#{pagetitle}</title>
+			</head>
+			<body>
+					<div>
+						Hello there!
+					</div>
+			</body>
+		</html>"
+	end
+	
+____
+
+ --> Because it's not restful
+____
+
+6.)
+
+> *Look at my view! This works, but why should I be doing things this way?*
+
+`app.rb`
+	
+	get '/person/:name` do
+		erb :show
+	end		
+		
+		
+`show.erb`
+
+		<div>
+			<% person = params[:name] %>
+		
+			Hello <%= person %>
+		</div>
+	
+____
+
+--> 
+____ 
+
+
+7.)
+
+> Revise the method so that this test will pass
+
+	describe "square method" do
+		it "should square each element in the array" do
+			my_array = [ 1, 2, 3, 4, 5]
+			square(my_array).should == [ 1, 4, 9, 16, 25]
+		end
+	end
+	
+	def square(array)
+		array.each { |element| element**2 }
+	end
+	
+____
+
+--> array.each should be array.map or map!
+____
+
+ 
+8.)
+
+> Determine the result of the method call
+
+	def mystery_method(array)
+		array.inject(2)	{ |acc, num| acc*num }
+	end
+	
+	# Determine the results of the following command
+	puts mystery_method([1,2,3,4])
+____
+
+-->	Result is 48.  2 (the starting value of acc) * 1 (2) * 2 (4) * 3 (12) * 4 (48)
+____
+ 
+9.)
+
+> Find the 2 errors in this css file
+	
+	div: {
+		color: red
+		float: left
+		}
+
+____
+
+--> There are no semicolons after red and left, and there shouldnt be a semicolon after div
+____
+ 
+10.)	
+	
+> a. How to reference the Director of the movie Jaws.
+____
+
+--> test_hash["Search"][0][:Data][:Director]
+____
+
+> b. How to reference the Year of the movie Die Hard.
+____
+
+--> test_hash["Search"][1][:Data][:Year]
+____
+	test_hash = {
+		"Search" => [{
+			Title: "Jaws",
+			Data: {Year: 1975, Rating: 'PG', Runtime: '124 min'},
+			Director: "Steven Spielberg"},
+			{
+			Title: "Die Hard",
+			Data: {Year: 1988, Rating: 'R', Runtime: '131 min'},
+			Director: "John McTiernan"}]}	

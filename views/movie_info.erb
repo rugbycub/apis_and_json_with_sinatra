@@ -1,16 +1,113 @@
 <html>
 	<head>
-		<title>Movie Poster</title>
+		<title><%=@results["Title"]%></title>
 	</head>
 
 	<body>
-		<h1>Movie Information</h1>
-		<br>
-		<h3><%= "#{@results["Title"]}"%></h3>
-	
-		<img src=<%= "#{@results["Poster"]}"%>>
+		<div class="container_title">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<h1><%= "#{@results["Title"]}"%></h1>
+				</div>
+			</div>
 
-		<br /><a href="/">New Search</a></body></html>
-
+			</div>
+				<div class="row clearfix">
+				<div class="col-md-4 column">
+					<div class="row clearfix">
+						<div class="col-md-12 column">
+							<img src=<%= "#{@results["Poster"]}"%> />
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-3 column">
+							<h4>
+								Released:
+							</h4>
+						</div>
+						<div class="col-md-9 column">
+							<p>
+								<%= "#{@results["Year"]}"%>
+							</p>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-3 column">
+							<h4>
+								Genre:
+							</h4>
+						</div>
+						<div class="col-md-9 column">
+							<p>
+								<%= "#{@results["Genre"]}"%>
+							</p>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-3 column">
+							<h4>
+								Rated:
+							</h4>
+						</div>
+						<div class="col-md-9 column">
+							<p>
+								<%= "#{@results["Rated"]}"%>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 column">
+					<div class="row clearfix">
+						<div class="col-md-3 column">
+							<h4>
+								Directed By: 
+							</h4>
+						</div>
+						<div class="col-md-9 column">
+							<p>
+								<%= "#{@results["Director"]}"%>
+							</p>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-3 column">
+							<h4>
+								Actors:
+							</h4>
+						</div>
+						<div class="col-md-9 column">
+							<p>
+								<%= "#{@results["Actors"]}"%>
+							</p>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-3 column">
+							<h4>
+								Plot:
+							</h4>
+						</div>
+						<div class="col-md-9 column">
+							<p>
+								<%= "#{@results["Plot"]}"%>
+							</p>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-3 column">
+							<h4>
+								Runtime:
+							</h4>
+						</div>
+						<div class="col-md-9 column">
+							<p>
+								<%= "#{@results["Runtime"]}"%>
+							</p>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>	
 	</body>
 </html>

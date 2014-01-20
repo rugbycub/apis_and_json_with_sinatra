@@ -1,0 +1,17 @@
+<html><head><title>Movie Search</title></head><body>
+  <h1>Find a Movie!</h1>
+  <form accept-charset="UTF-8" action="/result" method="post">
+    <label for="movie">Search for:</label>
+    <input id="movie" name="movie" type="text" />
+    <input name="commit" type="submit" value="Search" /> 
+  </form></body></html>
+
+
+  
+    display = ""
+    sorted.each do |movie|
+        display << %Q(<li><a href="http://localhost:4567/poster/#{movie["imdbID"]}">#{movie["Title"]} (#{movie["Year"]})</a></li>)
+    end
+
+    html_str = "<html><head><title>Movie Search Results</title></head><body><h1>Movie Results</h1><br><ul>"
+    html_str += "#{display}</ul></body></html>"
